@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace ASP.NET_WebAPI6.Entities
+namespace ControleEstoque.Entities
 {
     public partial class DBContext : DbContext
     {
@@ -13,44 +13,27 @@ namespace ASP.NET_WebAPI6.Entities
         {
         }
 
-        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Gondola> Gondola { get; set; }
+        public virtual DbSet<Gaveta> Gaveta { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseMySQL("server=localhost;port=3306;user=root;password=;database=demo");
+                optionsBuilder.UseMySQL("server=localhost;port=3306;user=root;password=1234;database=controleestoque");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>(entity =>
-            {
-                entity.ToTable("user");
+            modelBuilder.Entity<Gondola>();
 
-                entity.Property(e => e.Id).HasColumnType("int(11)");
-
-                entity.Property(e => e.FirstName)
-                    .IsRequired()
-                    .HasMaxLength(45);
-
-                entity.Property(e => e.LastName)
-                    .IsRequired()
-                    .HasMaxLength(45);
-
-                entity.Property(e => e.Password)
-                    .IsRequired()
-                    .HasMaxLength(45);
-
-                entity.Property(e => e.Username)
-                    .IsRequired()
-                    .HasMaxLength(45);
-            });
+            modelBuilder.Entity<Gaveta>();
 
             OnModelCreatingPartial(modelBuilder);
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
     }
 }

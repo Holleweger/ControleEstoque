@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Daniel\\source\\repos\\ASP.NET_WebAPI6\\ASP.NET_WebAPI6\\ASP.NET_WebAPI6.csproj": {}
+    "C:\\Users\\vavaC\\OneDrive\\Área de Trabalho\\Repos\\ControleDeEstoque\\ASP.NET6_WebAPI\\ASP.NET_WebAPI6\\ASP.NET_WebAPI6.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Daniel\\source\\repos\\ASP.NET_WebAPI6\\ASP.NET_WebAPI6\\ASP.NET_WebAPI6.csproj": {
+    "C:\\Users\\vavaC\\OneDrive\\Área de Trabalho\\Repos\\ControleDeEstoque\\ASP.NET6_WebAPI\\ASP.NET_WebAPI6\\ASP.NET_WebAPI6.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Daniel\\source\\repos\\ASP.NET_WebAPI6\\ASP.NET_WebAPI6\\ASP.NET_WebAPI6.csproj",
+        "projectUniqueName": "C:\\Users\\vavaC\\OneDrive\\Área de Trabalho\\Repos\\ControleDeEstoque\\ASP.NET6_WebAPI\\ASP.NET_WebAPI6\\ASP.NET_WebAPI6.csproj",
         "projectName": "ASP.NET_WebAPI6",
-        "projectPath": "C:\\Users\\Daniel\\source\\repos\\ASP.NET_WebAPI6\\ASP.NET_WebAPI6\\ASP.NET_WebAPI6.csproj",
-        "packagesPath": "C:\\Users\\Daniel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Daniel\\source\\repos\\ASP.NET_WebAPI6\\ASP.NET_WebAPI6\\obj\\",
+        "projectPath": "C:\\Users\\vavaC\\OneDrive\\Área de Trabalho\\Repos\\ControleDeEstoque\\ASP.NET6_WebAPI\\ASP.NET_WebAPI6\\ASP.NET_WebAPI6.csproj",
+        "packagesPath": "C:\\Users\\vavaC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\vavaC\\OneDrive\\Área de Trabalho\\Repos\\ControleDeEstoque\\ASP.NET6_WebAPI\\ASP.NET_WebAPI6\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Daniel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\vavaC\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -25,8 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://www.dotvvm.com/nuget/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
@@ -44,6 +40,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[6.0.32, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -71,10 +71,29 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.26, 6.0.26]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[6.0.26, 6.0.26]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.26, 6.0.26]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.26, 6.0.26]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -83,7 +102,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

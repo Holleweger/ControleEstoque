@@ -1,4 +1,4 @@
-using ASP.NET_WebAPI6.Entities;
+using ControleEstoque.Entities;
 using Microsoft.EntityFrameworkCore;
 using MySql.EntityFrameworkCore.Extensions;
 
