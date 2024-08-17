@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vavaC\\OneDrive\\Área de Trabalho\\Repos\\ControleDeEstoque\\ASP.NET6_WebAPI\\ASP.NET_WebAPI6\\ASP.NET_WebAPI6.csproj": {}
+    "C:\\ControleDeEstoque\\ASP.NET6_WebAPI\\ASP.NET_WebAPI6\\ASP.NET_WebAPI6.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vavaC\\OneDrive\\Área de Trabalho\\Repos\\ControleDeEstoque\\ASP.NET6_WebAPI\\ASP.NET_WebAPI6\\ASP.NET_WebAPI6.csproj": {
+    "C:\\ControleDeEstoque\\ASP.NET6_WebAPI\\ASP.NET_WebAPI6\\ASP.NET_WebAPI6.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vavaC\\OneDrive\\Área de Trabalho\\Repos\\ControleDeEstoque\\ASP.NET6_WebAPI\\ASP.NET_WebAPI6\\ASP.NET_WebAPI6.csproj",
+        "projectUniqueName": "C:\\ControleDeEstoque\\ASP.NET6_WebAPI\\ASP.NET_WebAPI6\\ASP.NET_WebAPI6.csproj",
         "projectName": "ASP.NET_WebAPI6",
-        "projectPath": "C:\\Users\\vavaC\\OneDrive\\Área de Trabalho\\Repos\\ControleDeEstoque\\ASP.NET6_WebAPI\\ASP.NET_WebAPI6\\ASP.NET_WebAPI6.csproj",
+        "projectPath": "C:\\ControleDeEstoque\\ASP.NET6_WebAPI\\ASP.NET_WebAPI6\\ASP.NET_WebAPI6.csproj",
         "packagesPath": "C:\\Users\\vavaC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vavaC\\OneDrive\\Área de Trabalho\\Repos\\ControleDeEstoque\\ASP.NET6_WebAPI\\ASP.NET_WebAPI6\\obj\\",
+        "outputPath": "C:\\ControleDeEstoque\\ASP.NET6_WebAPI\\ASP.NET_WebAPI6\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\vavaC\\AppData\\Roaming\\NuGet\\NuGet.Config",
