@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "haOd52OBIoJIa96/gBWJpWN1QyG0sk05+0rAmJV7olnQnmq4yZvrqpxKB0XxYaMRA5vZh0kK0oP21FmyBuFr8Q==",
+  "dgSpecHash": "Qhk6+j8ms0gj8ObU+qEPDMowoshgdsqKsxBWPcaCzD8bOJbP70VIaTcHs5D9DvcwyDhPrSUJ6h6Cp9evgTD/Iw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\vavaC\\OneDrive\\Área de Trabalho\\Repos\\ControleDeEstoque\\ASP.NET6_WebAPI\\ASP.NET_WebAPI6\\ASP.NET_WebAPI6.csproj",
+  "projectFilePath": "C:\\ControleDeEstoque\\ASP.NET6_WebAPI\\ASP.NET_WebAPI6\\ASP.NET_WebAPI6.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vavaC\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\vavaC\\.nuget\\packages\\google.protobuf\\3.14.0\\google.protobuf.3.14.0.nupkg.sha512",
