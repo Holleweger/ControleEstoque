@@ -39,7 +39,7 @@ namespace ControleEstoque.Controllers
             }
         }
 
-        [HttpGet("GetGondolaById")]
+        [HttpGet("GetGondolaById/{id}")]
         public async Task<ActionResult<GondolaDTO>> GetUserById(int Id)
         {
             GondolaDTO gondola = await DBContext.Gondola.Select(
