@@ -6,10 +6,8 @@ namespace ControleEstoque.DTO
     {
         public int Id { get; set; }
 
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string Nome { get; set; }
 
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string Codigo { get; set; }
     }
 }
