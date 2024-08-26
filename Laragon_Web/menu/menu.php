@@ -17,12 +17,12 @@
     </div>
     <ul class="nav-links">
       <li>
-        <a href="#">
+        <a href="http://localhost/">
           <i class='bx bx-building-house'></i>
           <span class="link_name">Home</span>
         </a>
         <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Home</a></li>
+          <li><a class="link_name" href="http://localhost/">Home</a></li>
         </ul>
       </li>
       <li>
