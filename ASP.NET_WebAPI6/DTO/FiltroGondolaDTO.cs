@@ -2,7 +2,7 @@
 
 namespace ControleEstoque.DTO
 {
-    public class GondolaDTO
+    public class FiltroGondolaDTO
     {
         public int Id { get; set; }
 

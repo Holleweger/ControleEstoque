@@ -39,7 +39,7 @@ namespace ControleEstoque.Controllers
             }
         }
 
-        [HttpGet("GetGondolaById")]
+        [HttpGet("GetGondolaById/{id}")]
         public async Task<ActionResult<GondolaDTO>> GetUserById(int Id)
         {
             GondolaDTO gondola = await DBContext.Gondola.Select(
@@ -59,6 +59,36 @@ namespace ControleEstoque.Controllers
             {
                 return gondola;
             }
+        }
+
+        [HttpPost("FiltrarGondola")]
+        public async Task<ActionResult<List<GondolaDTO>>> InsertGondola(FiltroGondolaDTO gondola)
+        {
+            var List = await DBContext.Gondola.Select(
+                s => new GondolaDTO
+                {
+                    Id = s.Id,
+                    Nome = s.Nome,
+                    Codigo = s.Codigo,
+                }
+            ).ToListAsync();
+
+            if (gondola.Id > 0)
+            {
+                List = List.Where(a => a.Id == gondola.Id).ToList();
+            }
+
+            if (gondola.Nome != null)
+            {
+                List = List.Where(a => a.Nome.Contains(gondola.Nome)).ToList();
+            }
+
+            if (gondola.Codigo != null)
+            {
+                List = List.Where(a => a.Codigo.Contains(gondola.Codigo)).ToList();
+            }
+
+            return List;
         }
 
         [HttpPost("InsertGondola")]

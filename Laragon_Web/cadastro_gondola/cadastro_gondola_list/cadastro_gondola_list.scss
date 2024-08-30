@@ -1,0 +1,103 @@
+body {
+    background-color: #E4E9F7;
+}
+
+.espacamento {
+    margin-top: 10px;
+    margin-left: 95px;
+
+}
+
+table {
+    border: 2px solid black;
+    width: 100%;
+    text-align: center;
+}
+
+th {
+    border-bottom: 2px solid black;
+    color: white;
+    background-color: #11101d;
+    font-weight: normal;
+}
+
+td {
+    border-bottom: 1px solid black;
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+    color: #11101d;
+    font-size: 30px;
+    text-decoration: underline;
+}
+
+.btn {
+  position: relative;
+  box-sizing: border-box;
+  border: 2px solid #11101d;
+  border-radius: 2em;
+  cursor: pointer;
+  display: flex;
+  font-size: 0.8rem;
+  line-height: 1;
+  margin-bottom: 10px;
+  padding: 0.6em 1em;
+  font-weight: bold;
+
+  &:hover,
+  &:focus {
+    color: #fff;
+  }
+}
+
+.add {
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  &:hover {
+    background-color: #09b709
+  }
+  margin-left: 3px;
+}
+
+.filter {
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  &:hover {
+    background-color: #2814e0
+  }
+  margin-left: 3px;
+}
+
+.edit {
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  &:hover {
+    background-color: #09b709
+  }
+  margin-bottom: 3px;
+  margin-top: 3px;
+  margin-left: auto;
+}
+
+.excluir {
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  &:hover {
+    background-color: #ce0f15
+  }
+  margin-bottom: 3px;
+  margin-top: 3px;
+  margin-left: 2px;
+  margin-right: auto;
+}
+
+.input {
+  position: relative;
+  margin-bottom: 20px;
+  > span {
+    font-size: 12px;
+  }
+  > input {
+    border-radius: 5px;
+    height: 30px;
+    border: 2px solid #11101d;
+  }
+}
