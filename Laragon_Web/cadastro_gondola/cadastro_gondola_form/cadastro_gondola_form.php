@@ -85,34 +85,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./cadastro_gondola_form.scss">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="C:\ControleEstoque\Laragon_Web\modules\dist\css\adminlte.css"></script>
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/css/adminlte.min.css"> -->
   <title>Document</title>
 </head>
 <body >
-  <form method="post">
   <h3>Cadastro de gôndola</h3>
-  <div class="espacamento">
-    <div style="display: block;">
-    <div class="input" style="width: 400px;">
-        <span>Id</span>
-        <input value="<?php echo $response -> id ?>" name="id"></input>
-      </div>
-      <div class="input" style="width: 400px;">
-        <span>Nome</span>
-        <input value="<?php echo $response -> nome ?>" name="nome"></input>
-      </div>
-      <div class="input" style="width: 400px;">
-        <span>Codigo</span>
-        <input value="<?php echo $response -> codigo ?>" name="codigo"></input>
-      </div>
+  <form method="post" id="consultation-form" class="feed-form">
+    <div class="espacamento">
     </div>
-    <div class="buttons" style="display: flex;">
-      <button name="submit" class="btn add">
-      <span> Confirmar </span>
-      </button>
-      <button name="cancel" onclick="location.href='http://localhost/cadastro_gondola/cadastro_gondola_list/cadastro_gondola_list.php';" class="btn cancelar">
-      <span> Cancelar </span>
-      </button>
+      <section class="section_form">
+        <input placeholder="Id" type="text" value="<?php echo $response -> id ?>" required="true" name="id"></input>
+        <input value="<?php echo $response -> nome ?>" name="nome" required="true" placeholder="Nome">
+        <input value="<?php echo $response -> codigo ?>" name="codigo" required="true" placeholder="Codigo" type="text">
+        <button name="submit" class="button_submit">CONFIRMAR</button>
+        <button name="cancel" onclick="location.href='http://localhost/cadastro_gondola/cadastro_gondola_list/cadastro_gondola_list.php';" class="button_exit">CANCELAR</button>
+      </section>
     </div>
   </div>
   </form>
