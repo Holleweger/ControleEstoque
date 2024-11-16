@@ -1,5 +1,11 @@
 <?php
   include "../../menu/menu.php";
+    /*-----------MENSAGENS----------*/
+    if (!array_key_exists('sucess', $_GET)) {
+      $_GET['sucess'] = "true";
+    }
+    /*------------------------------*/
+
   /*---------URLs----------*/
     $url_back = "https://localhost:44331/api/";
     $controller = "Gondola/";
@@ -32,7 +38,6 @@
                       "Accept: application/json\r\n"
           )
       );
-      $mensagem = '<script>alert("Gondola editada com sucesso!")</script>';
     }
   /*------------------*/
   
@@ -53,7 +58,6 @@
                       "Accept: application/json\r\n"
           )
       );
-      $mensagem = '<script>alert("Gondola criada com sucesso!")</script>';
     }
   }
   /*--------------------*/
@@ -70,10 +74,9 @@
     $result = file_get_contents( $url, false, $context );
     $response = json_decode( $result );
     if($response == "201" || $response == "200") {
-      echo $mensagem;
-      echo '<script>window.location.href = "' . $url_raiz . $url_gondola_list .'";</script>';
+      echo '<script>window.location.href = "' . $url_raiz . $url_gondola_list .'?msg_alert=success_form";</script>';
     } else {
-      echo '<script>alert("Erro no cadastro!")</script>'; 
+      echo '<script>window.location.href = "' . $url_raiz . $url_gondola_list .'?msg_alert=error_form";</script>';
     }
   }
   /*-------------------*/
@@ -103,6 +106,6 @@
       </section>
     </div>
   </div>
-  </form>
+</form>
 </body>
 </html>
