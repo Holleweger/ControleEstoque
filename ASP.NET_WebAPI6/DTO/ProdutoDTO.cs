@@ -1,15 +1,13 @@
-﻿using System.ComponentModel;
+﻿using Newtonsoft.Json;
 
 namespace ControleEstoque.DTO
 {
-    public class GavetaDTO
+    public class ProdutoDTO
     {
         public int Id { get; set; }
 
         public string Nome { get; set; }
 
         public string Codigo { get; set; }
-
-        public GondolaDTO Gondola { get; set; }
     }
 }

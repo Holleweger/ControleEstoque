@@ -8,9 +8,10 @@
 
   /*---------URLs----------*/
     $url_back = "https://localhost:44331/api/";
-    $controller = "Gondola/";
-    $url_raiz = "http://localhost/cadastro_gondola/";
-    $url_gondola_list = "cadastro_gondola_list/cadastro_gondola_list.php";
+    $controller = "Gaveta/";
+    $url_raiz = "http://localhost/cadastro_gaveta/";
+    $url_gaveta_list = "cadastro_gaveta_list/cadastro_gaveta_list.php";
+  /*----------------------*/
 
   /*-----------FORM---------*/
     $response = new stdClass();
@@ -19,16 +20,27 @@
     $response -> codigo = "";
   /*------------------------*/
 
+  /*---------GET_GONDOLAS---------*/
+    $gondolas = file_get_contents($url_back . "Gondola/" . "GetGondola/");
+    $_GET['gondolas'] = json_decode($gondolas);
+  /*--------------------------------*/
+
   /*-----EDIT-----*/
   if (array_key_exists('id', $_GET)) {
-    $response = file_get_contents($url_back . $controller . "GetGondolaById/" . $_GET['id']);
+    $response = file_get_contents($url_back . $controller . "GetGavetaById/" . $_GET['id']);
     $response = json_decode($response);
+    foreach ($_GET['gondolas'] as $gondola) {
+      $gondola -> selected = $gondola -> id == $response -> gondola -> id;
+    };
     if(array_key_exists('submit', $_POST)) {
-      $url = $url_back . $controller . "UpdateGondola";
+      $url = $url_back . $controller . "UpdateGaveta";
+      $gondola = new stdClass();
+      $gondola -> id = (int)$_POST['gondola'];
       $postData = array(
-        'id' => (int)$_GET['id'] ?? 0,
+        'id' => (int)$_GET['id'],
         'nome' => $_POST['nome'],
         'codigo' => $_POST['codigo'],
+        'gondola' => $gondola,
       );
       $options = array(
         'http' => array(
@@ -44,11 +56,14 @@
   /*-----CADASTRO-----*/
   } else {
     if(array_key_exists('submit', $_POST)) {
-      $url = $url_back . $controller . "InsertGondola";
+      $gondola = new stdClass();
+      $gondola -> id = (int)$_POST['gondola'];
+      $url = $url_back . $controller . "InsertGaveta";
       $postData = array(
         'id' => 0,
         'nome' => $_POST['nome'],
         'codigo' => $_POST['codigo'],
+        'gondola' => $gondola,
       );
       $options = array(
         'http' => array(
@@ -64,7 +79,7 @@
 
   /*-----CANCELAR------*/
   if ( array_key_exists('cancel', $_POST)) {
-    echo '<script>window.location.href = "' . $url_raiz . $url_gondola_list .'";</script>';
+    echo '<script>window.location.href = "' . $url_raiz . $url_gaveta_list .'";</script>';
   }
   /*-------------------*/
   
@@ -74,9 +89,9 @@
     $result = file_get_contents( $url, false, $context );
     $response = json_decode( $result );
     if($response == "201" || $response == "200") {
-      echo '<script>window.location.href = "' . $url_raiz . $url_gondola_list .'?msg_alert=success_form";</script>';
+      echo '<script>window.location.href = "' . $url_raiz . $url_gaveta_list .'?msg_alert=success_form";</script>';
     } else {
-      echo '<script>window.location.href = "' . $url_raiz . $url_gondola_list .'?msg_alert=error_form";</script>';
+      echo '<script>window.location.href = "' . $url_raiz . $url_gaveta_list .'?msg_alert=error_form";</script>';
     }
   }
   /*-------------------*/
@@ -87,33 +102,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./cadastro_gondola_form.scss">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="./cadastro_gaveta_form.scss">
+  <script src="C:\ControleEstoque\Laragon_Web\modules\dist\css\adminlte.css"></script>
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/css/adminlte.min.css"> -->
   <title>Document</title>
 </head>
 <body >
-  <h3>Cadastro de gôndola</h3>
-  <div class="espacamento">
-    <div style="display: block;">
-    <div class="input" style="width: 400px;">
-        <span>Id</span>
-        <input value="<?php echo $response -> id ?>" name="id"></input>
-      </div>
-      <div class="input" style="width: 400px;">
-        <span>Nome</span>
-        <input value="<?php echo $response -> nome ?>" name="nome"></input>
-      </div>
-      <div class="input" style="width: 400px;">
-        <span>Codigo</span>
-        <input value="<?php echo $response -> codigo ?>" name="codigo"></input>
-      </div>
+  <h3>Cadastro de gaveta</h3>
+  <form method="post" id="consultation-form" class="feed-form">
+    <div class="espacamento">
     </div>
-    <div class="buttons" style="display: flex;">
       <section class="section_form">
         <input value="<?php echo $response -> nome ?>" name="nome" required="true" placeholder="Nome">
         <input value="<?php echo $response -> codigo ?>" name="codigo" required="true" placeholder="Codigo" type="text">
+          <select name="gondola">
+            <option>Selecione uma gôndola...</option>
+            <?php foreach ($_GET['gondolas'] as $item): ?>
+              <option 
+                <?php 
+                  if (isset($item -> selected)) {
+                    echo $item -> selected ? "selected" : false;
+                  };
+                ?>
+                value="<?php echo $item -> id ?>">
+                <?php echo $item -> nome?>
+              </option>
+            <?php endforeach ?>
+          </select>
         <button name="submit" class="button_submit">CONFIRMAR</button>
-        <button name="cancel" onclick="location.href='http://localhost/cadastro_gondola/cadastro_gondola_list/cadastro_gondola_list.php';" class="button_exit">CANCELAR</button>
+        <button name="cancel" onclick="location.href='http://localhost/cadastro_gaveta/cadastro_gaveta_list/cadastro_gaveta_list.php';" class="button_exit">CANCELAR</button>
       </section>
     </div>
   </div>
