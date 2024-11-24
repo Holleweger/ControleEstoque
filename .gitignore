@@ -1,3 +1,4 @@
+<<<<<<< origin/feature/3
 /.vs/ASP.NET_WebAPI6/DesignTimeBuild/.dtbcache.v2
 /.vs/ASP.NET_WebAPI6/FileContentIndex/690a3cb3-96ed-4b36-9255-0186ae24546f.vsidx
 /.vs/ASP.NET_WebAPI6/FileContentIndex/d4f56ba2-c484-4d2c-8c67-445cdbd3f759.vsidx
@@ -37,3 +38,9 @@
 /.vs/ASP.NET_WebAPI6/v17/.futdcache.v2
 /.vs/ASP.NET_WebAPI6/FileContentIndex
 /.vs/ProjectEvaluation/asp.net_webapi6.projects.v7.bin
+=======
+/.vs
+/ASP.NET_WebAPI6/bin/Debug
+/Laragon_Web/.DS_Store
+/ASP.NET_WebAPI6/obj/Debug
+>>>>>>> local

@@ -46,8 +46,8 @@ namespace ControleEstoque.Controllers
             }
         }
 
-        [HttpGet("GetGavetaById")]
-        public async Task<ActionResult<GavetaDTO>> GetUserById(int Id)
+        [HttpGet("GetGavetaById/{id}")]
+        public async Task<ActionResult<GavetaDTO>> GetGavetaById(int Id)
         {
             GavetaDTO gaveta = await DBContext.Gaveta.Select(
                     s => new GavetaDTO
@@ -75,21 +75,26 @@ namespace ControleEstoque.Controllers
         }
 
         [HttpPost("InsertGaveta")]
-        public HttpStatusCode InsertGaveta(GavetaDTO gaveta)
+        public async Task<HttpStatusCode> InsertGaveta(GavetaDTO gaveta)
         {
-            var entity = new Gaveta()
+            try
             {
-                Id = gaveta.Id,
-                Nome = gaveta.Nome,
-                Codigo = gaveta.Codigo,
-                GondolaId = gaveta.Gondola.Id,
-                
-            };
+                var entity = new Gaveta()
+                {
+                    Nome = gaveta.Nome,
+                    Codigo = gaveta.Codigo,
+                    GondolaId = gaveta.Gondola.Id,
+                };
 
-            DBContext.Gaveta.Add(entity);
-            DBContext.SaveChangesAsync();
-
-            return HttpStatusCode.Created;
+                DBContext.Gaveta.Add(entity);
+                await DBContext.SaveChangesAsync();
+                return HttpStatusCode.Created;
+            }
+            catch (Exception ex)
+            {
+                var teste = ex.Message;
+                return HttpStatusCode.BadRequest;
+            }
         }
 
         [HttpPut("UpdateGaveta")]
@@ -117,6 +122,42 @@ namespace ControleEstoque.Controllers
             DBContext.Gaveta.Remove(entity);
             await DBContext.SaveChangesAsync();
             return HttpStatusCode.OK;
+        }
+
+        [HttpPost("FiltrarGaveta")]
+        public async Task<ActionResult<List<GavetaDTO>>> FiltrarGondola(FiltroGavetaDTO gaveta)
+        {
+            var List = await DBContext.Gaveta.Select(
+                s => new GavetaDTO
+                {
+                    Id = s.Id,
+                    Nome = s.Nome,
+                    Codigo = s.Codigo,
+                    Gondola = new GondolaDTO
+                    {
+                        Id = s.Gondola.Id,
+                        Nome = s.Gondola.Nome,
+                        Codigo = s.Gondola.Codigo,
+                    }
+                }
+            ).ToListAsync();
+
+            if (gaveta.Id > 0)
+            {
+                List = List.Where(a => a.Id == gaveta.Id).ToList();
+            }
+
+            if (gaveta.Nome != null)
+            {
+                List = List.Where(a => a.Nome.Contains(gaveta.Nome)).ToList();
+            }
+
+            if (gaveta.Codigo != null)
+            {
+                List = List.Where(a => a.Codigo.Contains(gaveta.Codigo)).ToList();
+            }
+
+            return List;
         }
     }
 }

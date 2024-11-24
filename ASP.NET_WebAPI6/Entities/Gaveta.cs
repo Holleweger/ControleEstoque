@@ -2,13 +2,13 @@
 {
     public partial class Gaveta
     {
-        public int Id { get; set; }
+        public virtual int Id { get; set; }
 
-        public string Nome { get; set; }
+        public virtual string Nome { get; set; }
 
-        public string Codigo { get; set; }
+        public virtual string Codigo { get; set; }
 
-        public int GondolaId { get; set; }
+        public virtual int GondolaId { get; set; }
 
         public virtual Gondola Gondola { get; set; }
     }
