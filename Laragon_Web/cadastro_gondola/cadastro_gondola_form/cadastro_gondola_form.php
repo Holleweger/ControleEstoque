@@ -1,5 +1,11 @@
 <?php
   include "../../menu/menu.php";
+    /*-----------MENSAGENS----------*/
+    if (!array_key_exists('sucess', $_GET)) {
+      $_GET['sucess'] = "true";
+    }
+    /*------------------------------*/
+
   /*---------URLs----------*/
     $url_back = "https://localhost:44331/api/";
     $controller = "Gondola/";
@@ -32,7 +38,6 @@
                       "Accept: application/json\r\n"
           )
       );
-      $mensagem = '<script>alert("Gondola editada com sucesso!")</script>';
     }
   /*------------------*/
   
@@ -53,7 +58,6 @@
                       "Accept: application/json\r\n"
           )
       );
-      $mensagem = '<script>alert("Gondola criada com sucesso!")</script>';
     }
   }
   /*--------------------*/
@@ -70,10 +74,9 @@
     $result = file_get_contents( $url, false, $context );
     $response = json_decode( $result );
     if($response == "201" || $response == "200") {
-      echo $mensagem;
-      echo '<script>window.location.href = "' . $url_raiz . $url_gondola_list .'";</script>';
+      echo '<script>window.location.href = "' . $url_raiz . $url_gondola_list .'?msg_alert=success_form";</script>';
     } else {
-      echo '<script>alert("Erro no cadastro!")</script>'; 
+      echo '<script>window.location.href = "' . $url_raiz . $url_gondola_list .'?msg_alert=error_form";</script>';
     }
   }
   /*-------------------*/
@@ -89,7 +92,6 @@
   <title>Document</title>
 </head>
 <body >
-  <form method="post">
   <h3>Cadastro de gôndola</h3>
   <div class="espacamento">
     <div style="display: block;">
@@ -106,24 +108,15 @@
         <input value="<?php echo $response -> codigo ?>" name="codigo"></input>
       </div>
     </div>
-<<<<<<< origin/feature/3
     <div class="buttons" style="display: flex;">
-      <button name="submit" class="btn add">
-      <span> Confirmar </span>
-      </button>
-      <button name="cancel" onclick="location.href='http://localhost/cadastro_gondola/cadastro_gondola_list/cadastro_gondola_list.php';" class="btn cancelar">
-      <span> Cancelar </span>
-      </button>
-=======
       <section class="section_form">
         <input value="<?php echo $response -> nome ?>" name="nome" required="true" placeholder="Nome">
         <input value="<?php echo $response -> codigo ?>" name="codigo" required="true" placeholder="Codigo" type="text">
         <button name="submit" class="button_submit">CONFIRMAR</button>
         <button name="cancel" onclick="location.href='http://localhost/cadastro_gondola/cadastro_gondola_list/cadastro_gondola_list.php';" class="button_exit">CANCELAR</button>
       </section>
->>>>>>> local
     </div>
   </div>
-  </form>
+</form>
 </body>
 </html>
