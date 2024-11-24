@@ -17,12 +17,12 @@
     </div>
     <ul class="nav-links">
       <li>
-        <a href="http://localhost/">
+        <a href="http://localhost/home">
           <i class='bx bx-building-house'></i>
           <span class="link_name">Home</span>
         </a>
         <ul class="sub-menu blank">
-          <li><a class="link_name" href="http://localhost/">Home</a></li>
+          <li><a class="link_name" href="http://localhost/home">Home</a></li>
         </ul>
       </li>
       <li>
@@ -36,7 +36,7 @@
         <ul class="sub-menu">
           <li><a class="link_name" href="#">Armazenamento</a></li>
           <li><a href="http://localhost/cadastro_gondola/cadastro_gondola_list/cadastro_gondola_list.php#">Gôndola</a></li>
-          <li><a href="#">Gaveta</a></li>
+          <li><a href="http://localhost/cadastro_gaveta/cadastro_gaveta_list/cadastro_gaveta_list.php#">Gaveta</a></li>
         </ul>
       </li>
       <li>
@@ -49,8 +49,8 @@
         </div>
         <ul class="sub-menu">
           <li><a class="link_name" href="#">Produtos</a></li>
-          <li><a href="#">Produto</a></li>
-          <li><a href="#">Categoria</a></li>
+          <li><a href="http://localhost/cadastro_produto/cadastro_produto_list/cadastro_produto_list.php#">Produto</a></li>
+          <li><a href="http://localhost/cadastro_produto_gaveta/cadastro_produto_gaveta_list/cadastro_produto_gaveta_list.php#">Inventário</a></li>
         </ul>
       </li>
       <li>
@@ -70,7 +70,7 @@
         <div class="profile_name">Wagner</div>
         <div class="job">Desenvolvedor</div>
       </div>
-      <i class='bx bx-log-out' ></i>
+      <a href="http://localhost"><i class='bx bx-log-out' ></i></a>
     </div>
   </li>
 </ul>

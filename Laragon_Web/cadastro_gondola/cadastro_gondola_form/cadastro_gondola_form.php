@@ -20,7 +20,7 @@
     if(array_key_exists('submit', $_POST)) {
       $url = $url_back . $controller . "UpdateGondola";
       $postData = array(
-        'id' => (int)$_POST['id'],
+        'id' => (int)$_GET['id'] ?? 0,
         'nome' => $_POST['nome'],
         'codigo' => $_POST['codigo'],
       );
@@ -41,7 +41,7 @@
     if(array_key_exists('submit', $_POST)) {
       $url = $url_back . $controller . "InsertGondola";
       $postData = array(
-        'id' => (int)$_POST['id'],
+        'id' => 0,
         'nome' => $_POST['nome'],
         'codigo' => $_POST['codigo'],
       );
@@ -106,6 +106,7 @@
         <input value="<?php echo $response -> codigo ?>" name="codigo"></input>
       </div>
     </div>
+<<<<<<< origin/feature/3
     <div class="buttons" style="display: flex;">
       <button name="submit" class="btn add">
       <span> Confirmar </span>
@@ -113,6 +114,14 @@
       <button name="cancel" onclick="location.href='http://localhost/cadastro_gondola/cadastro_gondola_list/cadastro_gondola_list.php';" class="btn cancelar">
       <span> Cancelar </span>
       </button>
+=======
+      <section class="section_form">
+        <input value="<?php echo $response -> nome ?>" name="nome" required="true" placeholder="Nome">
+        <input value="<?php echo $response -> codigo ?>" name="codigo" required="true" placeholder="Codigo" type="text">
+        <button name="submit" class="button_submit">CONFIRMAR</button>
+        <button name="cancel" onclick="location.href='http://localhost/cadastro_gondola/cadastro_gondola_list/cadastro_gondola_list.php';" class="button_exit">CANCELAR</button>
+      </section>
+>>>>>>> local
     </div>
   </div>
   </form>
