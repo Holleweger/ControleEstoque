@@ -15,6 +15,9 @@ namespace ControleEstoque.Entities
 
         public virtual DbSet<Gondola> Gondola { get; set; }
         public virtual DbSet<Gaveta> Gaveta { get; set; }
+        public virtual DbSet<Produto> Produto { get; set; }
+        public virtual DbSet<Produto_Gaveta> Produto_Gaveta { get; set; }
+        public virtual DbSet<Usuario> Usuario { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -29,6 +32,16 @@ namespace ControleEstoque.Entities
             modelBuilder.Entity<Gondola>();
 
             modelBuilder.Entity<Gaveta>();
+
+            modelBuilder.Entity<Produto>();
+
+            modelBuilder.Entity<Produto_Gaveta>()
+                .Property(t => t.ProdutoId).HasColumnName("ProdutoId");
+
+            modelBuilder.Entity<Produto_Gaveta>()
+                .Property(t => t.GavetaId).HasColumnName("GavetaId");
+
+            modelBuilder.Entity<Usuario>();
 
             OnModelCreatingPartial(modelBuilder);
         }
