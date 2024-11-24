@@ -93,21 +93,7 @@
 </head>
 <body >
   <h3>Cadastro de gôndola</h3>
-  <div class="espacamento">
-    <div style="display: block;">
-    <div class="input" style="width: 400px;">
-        <span>Id</span>
-        <input value="<?php echo $response -> id ?>" name="id"></input>
-      </div>
-      <div class="input" style="width: 400px;">
-        <span>Nome</span>
-        <input value="<?php echo $response -> nome ?>" name="nome"></input>
-      </div>
-      <div class="input" style="width: 400px;">
-        <span>Codigo</span>
-        <input value="<?php echo $response -> codigo ?>" name="codigo"></input>
-      </div>
-    </div>
+  <form method="post" id="consultation-form" class="feed-form">
     <div class="buttons" style="display: flex;">
       <section class="section_form">
         <input value="<?php echo $response -> nome ?>" name="nome" required="true" placeholder="Nome">
@@ -116,7 +102,7 @@
         <button name="cancel" onclick="location.href='http://localhost/cadastro_gondola/cadastro_gondola_list/cadastro_gondola_list.php';" class="button_exit">CANCELAR</button>
       </section>
     </div>
-  </div>
+  </form>
 </form>
 </body>
 </html>
